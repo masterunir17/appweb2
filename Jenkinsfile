@@ -10,9 +10,8 @@ pipeline {
 		   }
 		stage('Compilacion') { // Genera los ficheros .class con los fuentes .java
 			steps {
-				withMaven(maven:'maven_3_5_2'){
-					sh 'mvn compile'
-					}	
+				sh 'mvn compile'
+					
 			    }			
 			}
 		stage('Preparacion') { // en servidor web
@@ -28,24 +27,21 @@ pipeline {
 
 		stage('Despliegue') { // en servidor web
 			steps {
-			sh 'scp -r gestion/ root@172.31.57.100:/var/www/gestion'
-			sh 'scp -r webapp/ root@172.31.57.100:/var/www/html'
+			sh 'scp -r gestion/* root@172.31.57.100:/var/www/gestion'
+			sh 'scp -r webapp/* root@172.31.57.100:/var/www/html'
 
 			}		     
 		    }
 		stage('Pruebas Funcionales') { // Ejecuta los comandos de JUnt - Pruebas unitarias
 			steps {
-			withMaven(maven:'maven_3_5_2'){
-					sh 'mvn test'
-					}	
+				sh 'mvn test'
+			
 			     }		     
 		    }
 		stage('Finalizacion') { // Crear el .Jar validado
 			steps {
 			    sh 'echo Despliegue realizado con exito - QA'
-				// sh 'ssh root@172.31.57.100 mkdir -p /var/www/temp_deploy'
-				// sh 'scp -r /var/lib/jenkins/workspace/pipetest1/aplicacion/* root@172.31.57.100:/var/www/temp_deploy/'
-			   
+		   
 			}		     
 		    }
 		}
