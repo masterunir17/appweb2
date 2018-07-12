@@ -10,8 +10,10 @@ pipeline {
 		   }
 		stage('Compilacion') { // Genera los ficheros .class con los fuentes .java
 			steps {
-			sh 'mvn compile'
-			     	}			
+				withMaven(maven:'maven_3_5_2'){
+					sh 'mvn compile'
+					}	
+			    }			
 			}
 		stage('Preparacion') { // en servidor web
 			steps {
@@ -33,8 +35,10 @@ pipeline {
 		    }
 		stage('Pruebas Funcionales') { // Ejecuta los comandos de JUnt - Pruebas unitarias
 			steps {
-			sh 'mvn test'
-			}		     
+			withMaven(maven:'maven_3_5_2'){
+					sh 'mvn test'
+					}	
+			     }		     
 		    }
 		stage('Finalizacion') { // Crear el .Jar validado
 			steps {

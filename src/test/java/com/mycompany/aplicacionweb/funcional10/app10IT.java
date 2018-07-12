@@ -48,7 +48,7 @@ public class app10IT {
     @Before
     public void setUp() {
     System.out.println("launching chrome browser");
-    System.setProperty("webdriver.chrome.driver", "chromedriver");
+    System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
     driver = new ChromeDriver();
     baseUrl = "https://www.katalon.com/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -67,7 +67,7 @@ public class app10IT {
     @Test
     public void testSomeMethod() {
     // TODO review the generated test code and remove the default call to fail.
-    driver.get("http://172.31.57.100/");
+    driver.get("http://192.168.100.100/");
     driver.findElement(By.linkText("Conoce mas")).click();
     driver.findElement(By.linkText("ENTRAR")).click();
     driver.findElement(By.xpath("//section[@id='features17-r']/div/div/div[3]/div/div[2]/h4")).click();
