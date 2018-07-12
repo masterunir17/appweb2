@@ -5,7 +5,7 @@ pipeline {
 		stage('Sincronizacion') { // for display purposes
 		      // Get some code from a GitHub repository
 		      steps {
-				git 'https://github.com/masterunir17/appweb.git'
+				git 'https://github.com/masterunir17/appweb2.git'
 				}		
 		   }
 		stage('Compilacion') { // Genera los ficheros .class con los fuentes .java
