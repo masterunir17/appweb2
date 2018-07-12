@@ -26,8 +26,8 @@ pipeline {
 
 		stage('Despliegue') { // en servidor web
 			steps {
-			sh 'scp -r gestion/ root@172.31.57.100:/var/www/gestion/*'
-			sh 'scp -r webapp/ root@172.31.57.100:/var/www/html/*'
+			sh 'scp -r gestion/ root@172.31.57.100:/var/www/gestion'
+			sh 'scp -r webapp/ root@172.31.57.100:/var/www/html'
 
 			}		     
 		    }
