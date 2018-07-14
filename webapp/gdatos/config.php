@@ -5,10 +5,7 @@
  *
  */
 
-$host       = "172.31.60.40";
-/*
-$host       = "192.168.100.101";
-*/
+$host       = "10.0.11.20";
 $username   = "masterunir";
 $password   = "administrador";
 $dbname     = "masterunir";
